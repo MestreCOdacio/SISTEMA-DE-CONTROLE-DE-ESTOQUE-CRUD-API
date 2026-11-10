@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Controle de Estoque</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Sistema de Estoque</h1>
+        <nav>
+            <button onclick="mostrarSessao('produtos')">Produtos</button>
+            <button onclick="mostrarSessao('fornecedores')">Fornecedores</button>
+        </nav>
+    </header>
+
+    <main id="mensagem-alerta"></main> <!-- Para msgs de erro/sucesso -->
+
+    <!-- SESSÃO FORNECEDORES -->
+    <section id="sec-fornecedores" style="display:none;">
+        <h2>Cadastro de Fornecedores</h2>
+        <form id="form-fornecedor">
+            <input type="text" id="cnpj" placeholder="CNPJ (Apenas números)" required>
+            <button type="button" onclick="buscarCNPJ()">Buscar na BrasilAPI</button><br>
+            
+            <input type="text" id="razao" placeholder="Razão Social" required>
+            <input type="text" id="fantasia" placeholder="Nome Fantasia" required>
+            <input type="text" id="telefone" placeholder="Telefone" required>
+            <input type="text" id="endereco" placeholder="Endereço, Município, Estado" required>
+            <button type="submit">Salvar Fornecedor</button>
+        </form>
+
+        <h3>Fornecedores Cadastrados</h3>
+        <ul id="lista-fornecedores"></ul>
+    </section>
+
+    <!-- SESSÃO PRODUTOS -->
+    <section id="sec-produtos">
+        <h2>Gerenciamento de Produtos</h2>
+        <div class="painel-estoque">
+            <strong>Valor Total do Estoque: <span id="valor-total">R$ 0,00</span></strong>
+        </div>
+        
+        <form id="form-produto">
+            <input type="text" id="p-codigo" placeholder="Código" required>
+            <input type="text" id="p-nome" placeholder="Nome" required>
+            <input type="text" id="p-cat" placeholder="Categoria" required>
+            <input type="number" step="0.01" id="p-preco" placeholder="Preço" required>
+            <input type="number" id="p-qtd" placeholder="Qtd." required>
+            <select id="p-fornecedor" required>
+                <option value="">Selecione o Fornecedor...</option>
+            </select>
+            <button type="submit">Salvar Produto</button>
+        </form>
+
+        <input type="text" id="busca-produto" placeholder="Pesquisar produto por nome..." onkeyup="carregarProdutos()">
+        
+        <table id="tabela-produtos">
+            <thead>
+                <tr>
+                    <th>Código</th><th>Nome</th><th>Qtd</th><th>Preço</th><th>Ações</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </section>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+body { font-family: Arial, sans-serif; background: #f4f4f9; padding: 20px; }
+header { background: #333; color: white; padding: 15px; text-align: center; }
+button { padding: 8px 12px; cursor: pointer; }
+input, select { padding: 8px; margin: 5px; width: calc(100% - 20px); max-width: 300px;}
+form { background: white; padding: 15px; margin-bottom: 20px; border-radius: 5px; }
+
+/* Identificação visual de estoque baixo */
+.estoque-baixo {
+    background-color: #ffcccc !important;
+    color: #990000;
+    font-weight: bold;
+}
+
+table { width: 100%; border-collapse: collapse; margin-top: 15px; background: white;}
+th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+th { background: #eee; }
+
+#mensagem-alerta { margin: 10px 0; padding: 10px; font-weight: bold; border-radius: 4px;}
+.sucesso { background: #d4edda; color: #155724; }
+.erro { background: #f8d7da; color: #721c24; }
